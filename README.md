@@ -1,11 +1,23 @@
 # Signal Rest UI
 
 <p align="center">
+  <a href="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/docker-ci.yml">
+    <img src="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/docker-ci.yml/badge.svg?branch=main" alt="Docker CI" />
+  </a>
   <a href="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/release-please.yml">
-    <img src="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/release-please.yml/badge.svg?branch=main" alt="Release workflow status" />
+    <img src="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/release-please.yml/badge.svg?branch=main" alt="Release Please" />
+  </a>
+  <a href="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/codeql.yml">
+    <img src="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/codeql.yml/badge.svg?branch=main" alt="CodeQL" />
   </a>
   <a href="https://github.com/MrRagga-/signal-rest-ui/releases">
     <img src="https://img.shields.io/github/v/release/MrRagga-/signal-rest-ui?sort=semver" alt="Latest release" />
+  </a>
+  <a href="https://hub.docker.com/r/mrragga/signal-rest-ui">
+    <img src="https://img.shields.io/docker/pulls/mrragga/signal-rest-ui?logo=docker" alt="Docker Hub pulls" />
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="Apache 2.0 License" />
   </a>
 </p>
 
