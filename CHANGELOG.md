@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.2.2...signal-rest-ui-v0.2.3) (2026-03-29)
+
+
+### Bug Fixes
+
+* handle container shutdown signals ([3df35a7](https://github.com/MrRagga-/signal-rest-ui/commit/3df35a768790e12755e6b388e651f2cb5a7b3a9d))
+
 ## [0.2.2](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.2.1...signal-rest-ui-v0.2.2) (2026-03-29)
 
 
