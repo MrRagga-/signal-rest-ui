@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.2.1...signal-rest-ui-v0.2.2) (2026-03-29)
+
+
+### Bug Fixes
+
+* publish release images to docker hub ([880026a](https://github.com/MrRagga-/signal-rest-ui/commit/880026ac34b49b143efd4cc37a9864fb6ba1f9e1))
+
 ## [0.2.1](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.2.0...signal-rest-ui-v0.2.1) (2026-03-29)
 
 
