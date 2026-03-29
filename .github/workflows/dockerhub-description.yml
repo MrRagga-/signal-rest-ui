@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - DOCKERHUB.md
       - README.md
       - .github/workflows/dockerhub-description.yml
   workflow_dispatch:
@@ -26,3 +27,5 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: mrragga/signal-rest-ui
+          short-description: Focused web UI for signal-cli-rest-api with direct and proxy transport modes.
+          readme-filepath: ./DOCKERHUB.md

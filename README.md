@@ -73,7 +73,17 @@ docker compose down
 
 ## Docker
 
-If you prefer running the image directly, build it with:
+To run the published Docker Hub image:
+
+```bash
+docker run --rm \
+  -p 3000:3000 \
+  -e PROXY_ENABLED=true \
+  -e PROXY_ALLOWED_HOSTS=192.168.1.20,signal.local \
+  docker.io/mrragga/signal-rest-ui:latest
+```
+
+To build and run a local image from this repository instead:
 
 ```bash
 docker build -t signal-rest-ui:local .
@@ -195,7 +205,7 @@ Releases are automated with `release-please` on GitHub Actions.
 
 - Merge Conventional Commit changes into `main`.
 - `release-please` opens or updates a release PR that bumps `package.json` and `CHANGELOG.md`.
-- Merging that release PR creates the GitHub Release and pushes the official GHCR image.
+- Merging that release PR creates the GitHub Release and pushes the official Docker Hub image.
 
 ### Commit and PR Title Format
 
