@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --background: #111310;
+  --foreground: #f4f2eb;
+  --panel: rgba(23, 26, 22, 0.9);
+  --panel-strong: rgba(31, 35, 30, 0.97);
+  --panel-border: rgba(164, 179, 164, 0.16);
+  --muted: #9fa89f;
+  --muted-foreground: #748074;
+  --accent: #48d597;
+  --accent-soft: rgba(72, 213, 151, 0.12);
+  --accent-strong: #1aa26b;
+  --danger: #ff8574;
+  --warning: #f4cc75;
+  --shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  --radius: 1.5rem;
+  font-family: "Manrope", sans-serif;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at top left, rgba(72, 213, 151, 0.16), transparent 32%),
+    radial-gradient(circle at 85% 20%, rgba(244, 204, 117, 0.08), transparent 24%),
+    linear-gradient(180deg, #171915 0%, #10120f 100%);
+}
+
+@theme inline {
+  --font-sans: "Manrope", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at top left, rgba(72, 213, 151, 0.16), transparent 32%),
+    radial-gradient(circle at 85% 20%, rgba(244, 204, 117, 0.08), transparent 24%),
+    linear-gradient(180deg, #171915 0%, #10120f 100%);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+pre,
+code {
+  font-family: var(--font-mono);
+}
+
+.glass-panel {
+  background: linear-gradient(180deg, rgba(24, 27, 23, 0.96), rgba(18, 20, 17, 0.92));
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+}

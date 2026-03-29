@@ -1,0 +1,18 @@
+services:
+  signal-rest-ui:
+    build:
+      context: .
+    image: signal-rest-ui:local
+    restart: unless-stopped
+    ports:
+      - "${SIGNAL_REST_UI_PORT:-3000}:3000"
+    environment:
+      PORT: "3000"
+      APP_BRANDING_NAME: "${APP_BRANDING_NAME:-Signal Rest UI}"
+      APP_BRANDING_TAGLINE: "${APP_BRANDING_TAGLINE:-Modern control surface for signal-cli-rest-api}"
+      DEFAULT_TRANSPORT: "${DEFAULT_TRANSPORT:-direct}"
+      DEFAULT_PROFILES_JSON: "${DEFAULT_PROFILES_JSON:-[]}"
+      PROXY_ENABLED: "${PROXY_ENABLED:-false}"
+      PROXY_BASE_PATH: "${PROXY_BASE_PATH:-/proxy}"
+      PROXY_ALLOWED_HOSTS: "${PROXY_ALLOWED_HOSTS:-}"
+      REFRESH_INTERVAL_MS: "${REFRESH_INTERVAL_MS:-15000}"
