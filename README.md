@@ -7,9 +7,6 @@
   <a href="https://github.com/MrRagga-/signal-rest-ui/releases">
     <img src="https://img.shields.io/github/v/release/MrRagga-/signal-rest-ui?sort=semver" alt="Latest release" />
   </a>
-  <a href="https://github.com/MrRagga-/signal-rest-ui/pkgs/container/signal-rest-ui">
-    <img src="https://img.shields.io/badge/GHCR-ghcr.io%2Fmrragga-%2Fsignal--rest--ui-0969da?logo=github" alt="GHCR package" />
-  </a>
 </p>
 
 <p align="center">
@@ -93,16 +90,6 @@ docker run --rm \
   -e PROXY_ENABLED=true \
   -e PROXY_ALLOWED_HOSTS=192.168.1.20,signal.local \
   docker.io/mrragga/signal-rest-ui:latest
-```
-
-To run the published GitHub Container Registry image:
-
-```bash
-docker run --rm \
-  -p 3000:3000 \
-  -e PROXY_ENABLED=true \
-  -e PROXY_ALLOWED_HOSTS=192.168.1.20,signal.local \
-  ghcr.io/mrragga-/signal-rest-ui:latest
 ```
 
 To build and run a local image from this repository instead:
@@ -236,7 +223,7 @@ Releases are automated with `release-please` on GitHub Actions.
 
 - Merge Conventional Commit changes into `main`.
 - `release-please` opens or updates a release PR that bumps `package.json` and `CHANGELOG.md`.
-- Merging that release PR creates the GitHub Release, pushes the official Docker Hub and GHCR images, and uploads an SPDX SBOM asset for the release.
+- Merging that release PR creates the GitHub Release, pushes the official Docker Hub image, and uploads an SPDX SBOM asset for the release.
 
 ### Commit and PR Title Format
 
@@ -259,12 +246,10 @@ Release impact:
 
 ### Published Container Images
 
-Official release images are published to Docker Hub and GitHub Container Registry:
+Official release images are published to Docker Hub:
 
 - `docker.io/mrragga/signal-rest-ui:signal-rest-ui-vX.Y.Z`
 - `docker.io/mrragga/signal-rest-ui:latest`
-- `ghcr.io/mrragga-/signal-rest-ui:signal-rest-ui-vX.Y.Z`
-- `ghcr.io/mrragga-/signal-rest-ui:latest`
 
 Docker defaults to Docker Hub when no registry is specified, so these are equivalent:
 
@@ -279,7 +264,6 @@ Pull the latest official release with:
 
 ```bash
 docker pull docker.io/mrragga/signal-rest-ui:latest
-docker pull ghcr.io/mrragga-/signal-rest-ui:latest
 ```
 
 Release assets include an SPDX SBOM for each published version.

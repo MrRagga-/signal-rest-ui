@@ -21,7 +21,6 @@ const repositoryUrl = packageJson.repository.url.replace(/^git\+/, "").replace(/
 const maintainerUrl = "https://github.com/MrRagga-";
 const issueUrl = packageJson.bugs.url;
 const securityUrl = `${repositoryUrl}/security`;
-const ghcrUrl = `${repositoryUrl}/pkgs/container/signal-rest-ui`;
 const dockerHubUrl = "https://hub.docker.com/r/mrragga/signal-rest-ui";
 
 const resourceLinks = [
@@ -42,12 +41,6 @@ const resourceLinks = [
     label: "Security policy",
     description: "Private vulnerability reporting guidance and supported versions.",
     icon: ShieldCheck,
-  },
-  {
-    href: ghcrUrl,
-    label: "GHCR package",
-    description: "Published container image on GitHub Container Registry.",
-    icon: Package,
   },
   {
     href: dockerHubUrl,

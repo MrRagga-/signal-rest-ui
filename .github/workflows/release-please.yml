@@ -17,7 +17,6 @@ permissions:
   pull-requests: write
   attestations: write
   id-token: write
-  packages: write
 
 jobs:
   release:
@@ -36,14 +35,11 @@ jobs:
         if: ${{ steps.release.outputs.release_created == 'true' }}
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Compute image names
+      - name: Compute image name
         if: ${{ steps.release.outputs.release_created == 'true' }}
         id: image
         shell: bash
-        run: |
-          owner="$(printf '%s' "${GITHUB_REPOSITORY_OWNER}" | tr '[:upper:]' '[:lower:]')"
-          echo "dockerhub=docker.io/mrragga/signal-rest-ui" >> "$GITHUB_OUTPUT"
-          echo "ghcr=ghcr.io/${owner}/signal-rest-ui" >> "$GITHUB_OUTPUT"
+        run: echo "dockerhub=docker.io/mrragga/signal-rest-ui" >> "$GITHUB_OUTPUT"
 
       - name: Set up QEMU
         if: ${{ steps.release.outputs.release_created == 'true' }}
@@ -60,27 +56,17 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Log in to GitHub Container Registry
-        if: ${{ steps.release.outputs.release_created == 'true' }}
-        uses: docker/login-action@b45d80f862d83dbcd57f89517bcf500b2ab88fb2 # v4.0.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Extract Docker metadata
         if: ${{ steps.release.outputs.release_created == 'true' }}
         id: meta
         uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6.0.0
         with:
-          images: |
-            ${{ steps.image.outputs.dockerhub }}
-            ${{ steps.image.outputs.ghcr }}
+          images: ${{ steps.image.outputs.dockerhub }}
           tags: |
             type=raw,value=${{ steps.release.outputs.tag_name }}
             type=raw,value=latest
 
-      - name: Build and push release images
+      - name: Build and push release image
         if: ${{ steps.release.outputs.release_created == 'true' }}
         id: build
         uses: docker/build-push-action@d08e5c354a6adb9ed34480a06d141179aa583294 # v7.0.0
@@ -102,12 +88,12 @@ jobs:
         id: sbom
         uses: anchore/sbom-action@e22c389904149dbc22b58101806040fa8d37a610 # v0
         with:
-          image: ${{ steps.image.outputs.ghcr }}@${{ steps.build.outputs.digest }}
+          image: ${{ steps.image.outputs.dockerhub }}@${{ steps.build.outputs.digest }}
           artifact-name: signal-rest-ui-${{ steps.release.outputs.tag_name }}.spdx.json
           output-file: ${{ runner.temp }}/signal-rest-ui-${{ steps.release.outputs.tag_name }}.spdx.json
           format: spdx-json
-          registry-username: ${{ github.actor }}
-          registry-password: ${{ secrets.GITHUB_TOKEN }}
+          registry-username: ${{ secrets.DOCKERHUB_USERNAME }}
+          registry-password: ${{ secrets.DOCKERHUB_TOKEN }}
           upload-release-assets: false
 
       - name: Upload SBOM to GitHub release
@@ -124,13 +110,5 @@ jobs:
         uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4
         with:
           subject-name: ${{ steps.image.outputs.dockerhub }}
-          subject-digest: ${{ steps.build.outputs.digest }}
-          push-to-registry: true
-
-      - name: Generate GHCR build provenance attestation
-        if: ${{ steps.release.outputs.release_created == 'true' }}
-        uses: actions/attest@59d89421af93a897026c735860bf21b6eb4f7b26 # v4
-        with:
-          subject-name: ${{ steps.image.outputs.ghcr }}
           subject-digest: ${{ steps.build.outputs.digest }}
           push-to-registry: true
