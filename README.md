@@ -50,6 +50,7 @@ pnpm preview
 The default container workflow is:
 
 ```bash
+cp example.env .env
 docker compose up --build
 ```
 
@@ -75,7 +76,7 @@ docker compose down
 If you prefer running the image directly, build it with:
 
 ```bash
-docker build -t signal-rest-ui .
+docker build -t signal-rest-ui:local .
 ```
 
 Then run it with:
@@ -85,7 +86,7 @@ docker run --rm \
   -p 3000:3000 \
   -e PROXY_ENABLED=true \
   -e PROXY_ALLOWED_HOSTS=192.168.1.20,signal.local \
-  signal-rest-ui
+  signal-rest-ui:local
 ```
 
 Then open `http://localhost:3000`.
@@ -108,7 +109,13 @@ The server exposes runtime settings at `/config.json`. The client reads that fil
 | `PROXY_ALLOWED_HOSTS`   | empty                                            | Comma-separated allowlist for proxy targets.                |
 | `REFRESH_INTERVAL_MS`   | `15000`                                          | Client refresh interval hint used by app state and queries. |
 
-When using `compose.yaml`, you can set these values through a local `.env` file or exported shell variables before running `docker compose up`.
+When using `compose.yaml`, start by copying the checked-in example and then edit the values you need:
+
+```bash
+cp example.env .env
+```
+
+You can also override the same values through exported shell variables before running `docker compose up`.
 
 ### Example `DEFAULT_PROFILES_JSON`
 
@@ -211,15 +218,24 @@ Release impact:
 
 ### Published Container Images
 
-Official release images are published to GitHub Container Registry:
+Official release images are published to Docker Hub:
 
-- `ghcr.io/mrragga-/signal-rest-ui:vX.Y.Z`
-- `ghcr.io/mrragga-/signal-rest-ui:latest`
+- `docker.io/mrragga/signal-rest-ui:vX.Y.Z`
+- `docker.io/mrragga/signal-rest-ui:latest`
 
-Pull an official release with:
+Docker defaults to Docker Hub when no registry is specified, so these are equivalent:
 
 ```bash
-docker pull ghcr.io/mrragga-/signal-rest-ui:latest
+docker pull docker.io/mrragga/signal-rest-ui:latest
+docker pull mrragga/signal-rest-ui:latest
+```
+
+If you want to be explicit about the source registry, keep the `docker.io/` prefix in commands and docs.
+
+Pull the latest official release with:
+
+```bash
+docker pull docker.io/mrragga/signal-rest-ui:latest
 ```
 
 ### API Code Generation
