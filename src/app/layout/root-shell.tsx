@@ -1,6 +1,7 @@
 import {
   Cable,
   FolderKanban,
+  Info,
   MessageSquareDot,
   Paperclip,
   Route,
@@ -25,6 +26,7 @@ const navigation = [
   { to: "/attachments", label: "Attachments", icon: Paperclip },
   { to: "/advanced", label: "Advanced", icon: Shield },
   { to: "/api", label: "API Console", icon: Cable },
+  { to: "/about", label: "About", icon: Info },
 ];
 
 export function RootShell() {

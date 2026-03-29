@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { RootShell } from "@/app/layout/root-shell";
 import { AccountsRoute } from "@/routes/accounts-route";
 import { AdvancedRoute } from "@/routes/advanced-route";
+import { AboutRoute } from "@/routes/about-route";
 import { ApiRoute } from "@/routes/api-route";
 import { AttachmentsRoute } from "@/routes/attachments-route";
 import { ConnectRoute } from "@/routes/connect-route";
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "api",
         element: <ApiRoute />,
+      },
+      {
+        path: "about",
+        element: <AboutRoute />,
       },
     ],
   },
