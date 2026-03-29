@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.2.0...signal-rest-ui-v0.2.1) (2026-03-29)
+
+
+### Bug Fixes
+
+* trigger release workflow verification ([4fa02d7](https://github.com/MrRagga-/signal-rest-ui/commit/4fa02d7a56a9d30ff7b3c90e2cf3640cfd5a0fca))
+
 ## [0.2.0](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.1.0...signal-rest-ui-v0.2.0) (2026-03-29)
 
 
