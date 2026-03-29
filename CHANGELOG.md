@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.2.3...signal-rest-ui-v0.3.0) (2026-03-29)
+
+
+### Features
+
+* add about menu and project details page ([7b5fe0a](https://github.com/MrRagga-/signal-rest-ui/commit/7b5fe0aa980e55e363349fbc5fb9fd7b99987131))
+
 ## [0.2.3](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.2.2...signal-rest-ui-v0.2.3) (2026-03-29)
 
 
