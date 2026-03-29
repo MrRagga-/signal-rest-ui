@@ -225,7 +225,7 @@ app.get("*", async (context) => {
   return context.html(html);
 });
 
-serve(
+const server = serve(
   {
     fetch: app.fetch,
     port,
@@ -234,3 +234,33 @@ serve(
     console.log(`signal-rest-ui server listening on http://localhost:${info.port}`);
   },
 );
+
+let shutdownStarted = false;
+
+function shutdown(signal: NodeJS.Signals) {
+  if (shutdownStarted) {
+    process.exit(1);
+  }
+
+  shutdownStarted = true;
+  console.log(`received ${signal}, shutting down signal-rest-ui server`);
+
+  const forceExitTimer = setTimeout(() => {
+    console.error("forced shutdown after timeout");
+    process.exit(1);
+  }, 10_000);
+
+  server.close((error) => {
+    clearTimeout(forceExitTimer);
+
+    if (error) {
+      console.error("error while shutting down server", error);
+      process.exit(1);
+    }
+
+    process.exit(0);
+  });
+}
+
+process.once("SIGINT", () => shutdown("SIGINT"));
+process.once("SIGTERM", () => shutdown("SIGTERM"));
