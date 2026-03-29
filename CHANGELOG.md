@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.3.0...signal-rest-ui-v0.3.1) (2026-03-29)
+
+
+### Bug Fixes
+
+* publish releases to docker hub only ([d3ca8dc](https://github.com/MrRagga-/signal-rest-ui/commit/d3ca8dc660a1c3e73b3b1ce09ff3cba4a388c467))
+
 ## [0.3.0](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.2.3...signal-rest-ui-v0.3.0) (2026-03-29)
 
 
