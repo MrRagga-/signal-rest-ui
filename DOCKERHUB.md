@@ -51,3 +51,4 @@ Published release tags:
 Project source and full documentation:
 
 - GitHub: [MrRagga-/signal-rest-ui](https://github.com/MrRagga-/signal-rest-ui)
+- GHCR package: [ghcr.io/mrragga-/signal-rest-ui](https://github.com/MrRagga-/signal-rest-ui/pkgs/container/signal-rest-ui)

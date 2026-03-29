@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a reproducible defect in the UI, server, or container workflow.
+title: "fix: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please provide enough detail to reproduce it.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release version, image tag, or commit SHA
+      placeholder: signal-rest-ui-v0.2.2
+    validations:
+      required: true
+  - type: dropdown
+    id: transport
+    attributes:
+      label: Transport mode
+      options:
+        - direct
+        - proxy
+        - both
+        - not sure
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, OS, deployment mode, and relevant runtime config with secrets removed
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs, screenshots, or payload excerpts
+      description: Remove secrets, auth headers, and personal message content before posting

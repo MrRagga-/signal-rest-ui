@@ -1,0 +1,32 @@
+name: Feature request
+description: Propose a scoped improvement to the operator workflow.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the operator problem first. Requests that change receive behavior should explain why explicit/manual receive is not sufficient.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What workflow is blocked or inefficient today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: scope
+    attributes:
+      label: Additional context
+      description: Include transport implications, API endpoints involved, and any screenshots or mockups

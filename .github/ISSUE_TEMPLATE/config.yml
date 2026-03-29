@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support
+    url: https://github.com/MrRagga-/signal-rest-ui/blob/main/SUPPORT.md
+    about: Use the support guide for setup and usage questions.
+  - name: Security Policy
+    url: https://github.com/MrRagga-/signal-rest-ui/blob/main/SECURITY.md
+    about: Follow the private reporting process for vulnerabilities.

@@ -15,6 +15,10 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 
+LABEL org.opencontainers.image.source="https://github.com/MrRagga-/signal-rest-ui"
+LABEL org.opencontainers.image.description="Focused web UI for signal-cli-rest-api with direct and proxy transport modes."
+LABEL org.opencontainers.image.licenses="Apache-2.0"
+
 COPY package.json pnpm-lock.yaml .npmrc ./
 RUN corepack enable && pnpm install --prod --frozen-lockfile
 

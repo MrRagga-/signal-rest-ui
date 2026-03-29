@@ -1,6 +1,18 @@
 # Signal Rest UI
 
 <p align="center">
+  <a href="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/release-please.yml">
+    <img src="https://github.com/MrRagga-/signal-rest-ui/actions/workflows/release-please.yml/badge.svg?branch=main" alt="Release workflow status" />
+  </a>
+  <a href="https://github.com/MrRagga-/signal-rest-ui/releases">
+    <img src="https://img.shields.io/github/v/release/MrRagga-/signal-rest-ui?sort=semver" alt="Latest release" />
+  </a>
+  <a href="https://github.com/MrRagga-/signal-rest-ui/pkgs/container/signal-rest-ui">
+    <img src="https://img.shields.io/badge/GHCR-ghcr.io%2Fmrragga-%2Fsignal--rest--ui-0969da?logo=github" alt="GHCR package" />
+  </a>
+</p>
+
+<p align="center">
   <img src="./public/signal-rest-ui-mark.png" alt="Signal Rest UI mark" width="160" />
 </p>
 
@@ -81,6 +93,16 @@ docker run --rm \
   -e PROXY_ENABLED=true \
   -e PROXY_ALLOWED_HOSTS=192.168.1.20,signal.local \
   docker.io/mrragga/signal-rest-ui:latest
+```
+
+To run the published GitHub Container Registry image:
+
+```bash
+docker run --rm \
+  -p 3000:3000 \
+  -e PROXY_ENABLED=true \
+  -e PROXY_ALLOWED_HOSTS=192.168.1.20,signal.local \
+  ghcr.io/mrragga-/signal-rest-ui:latest
 ```
 
 To build and run a local image from this repository instead:
@@ -199,13 +221,22 @@ docker compose up --build
 docker compose down
 ```
 
+## Project Health
+
+- License: Apache License 2.0. See [LICENSE](./LICENSE).
+- Contributing: See [CONTRIBUTING.md](./CONTRIBUTING.md).
+- Code of Conduct: See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
+- Security reporting: See [SECURITY.md](./SECURITY.md).
+- Support: See [SUPPORT.md](./SUPPORT.md).
+- Third-party notices: See [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+
 ## Releases
 
 Releases are automated with `release-please` on GitHub Actions.
 
 - Merge Conventional Commit changes into `main`.
 - `release-please` opens or updates a release PR that bumps `package.json` and `CHANGELOG.md`.
-- Merging that release PR creates the GitHub Release and pushes the official Docker Hub image.
+- Merging that release PR creates the GitHub Release, pushes the official Docker Hub and GHCR images, and uploads an SPDX SBOM asset for the release.
 
 ### Commit and PR Title Format
 
@@ -228,10 +259,12 @@ Release impact:
 
 ### Published Container Images
 
-Official release images are published to Docker Hub:
+Official release images are published to Docker Hub and GitHub Container Registry:
 
 - `docker.io/mrragga/signal-rest-ui:signal-rest-ui-vX.Y.Z`
 - `docker.io/mrragga/signal-rest-ui:latest`
+- `ghcr.io/mrragga-/signal-rest-ui:signal-rest-ui-vX.Y.Z`
+- `ghcr.io/mrragga-/signal-rest-ui:latest`
 
 Docker defaults to Docker Hub when no registry is specified, so these are equivalent:
 
@@ -246,7 +279,10 @@ Pull the latest official release with:
 
 ```bash
 docker pull docker.io/mrragga/signal-rest-ui:latest
+docker pull ghcr.io/mrragga-/signal-rest-ui:latest
 ```
+
+Release assets include an SPDX SBOM for each published version.
 
 ### API Code Generation
 

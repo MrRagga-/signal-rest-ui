@@ -41,9 +41,13 @@ Use this file as the repo-specific guide before making changes.
 - `compose.yaml`
   Default local container orchestration for the UI image
 - `.github/workflows/release-please.yml`
-  Release PR, changelog, GitHub Release, and official GHCR publishing flow
+  Release PR, changelog, GitHub Release, Docker Hub + GHCR publishing, attestations, and SBOM asset generation
 - `.github/workflows/docker-ci.yml`
   PR/manual Docker build validation only
+- `.github/dependabot.yml`
+  Weekly dependency updates for pnpm, Docker, and GitHub Actions
+- `LICENSE`, `SECURITY.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `SUPPORT.md`
+  Public repository health and maintainer policy files
 - `test/e2e/`
   Playwright coverage
 
@@ -51,6 +55,7 @@ Use this file as the repo-specific guide before making changes.
 
 - Use `pnpm` for all package and script commands.
 - Prefer `rg` for search and `pnpm` scripts for validation.
+- Respect `.editorconfig` defaults for new or reformatted files.
 - Treat `src/lib/api/generated/` as generated output. Do not hand-edit it unless the task is explicitly about generated output and you also update the generation inputs.
 - The source of truth for API surface changes is `docs/swagger.json`, not `src/lib/api/generated/signal.ts`.
 - Keep transport-aware request logic inside `src/lib/api/client.ts` and `src/lib/api/runtime.ts`. Do not duplicate proxy/direct URL logic in routes.
@@ -114,6 +119,7 @@ If you skip a check, state that explicitly in the final handoff.
 - The proxy endpoint is `/proxy/*` by default and requires `x-target-base-url`.
 - The API console is backed by the vendored Swagger catalog in `src/lib/api/swagger.ts`.
 - Official container publishing happens only from the release workflow after `release-please` creates a release.
+- Official release images are expected in both Docker Hub and GHCR, with `org.opencontainers.image.source` pointing back to this repository.
 
 ## Safe Change Patterns
 
