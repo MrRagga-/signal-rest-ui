@@ -3,7 +3,8 @@ FROM node:25-alpine AS builder
 WORKDIR /app
 
 COPY package.json pnpm-lock.yaml .npmrc ./
-RUN corepack enable && pnpm install --frozen-lockfile
+RUN npm install --global "$(node -p "require('./package.json').packageManager")" \
+  && pnpm install --frozen-lockfile
 
 COPY . .
 RUN pnpm build
@@ -20,7 +21,8 @@ LABEL org.opencontainers.image.description="Focused web UI for signal-cli-rest-a
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 
 COPY package.json pnpm-lock.yaml .npmrc ./
-RUN corepack enable && pnpm install --prod --frozen-lockfile
+RUN npm install --global "$(node -p "require('./package.json').packageManager")" \
+  && pnpm install --prod --frozen-lockfile
 
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/dist-server ./dist-server
