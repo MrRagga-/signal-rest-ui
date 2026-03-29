@@ -220,7 +220,7 @@ Release impact:
 
 Official release images are published to Docker Hub:
 
-- `docker.io/mrragga/signal-rest-ui:vX.Y.Z`
+- `docker.io/mrragga/signal-rest-ui:signal-rest-ui-vX.Y.Z`
 - `docker.io/mrragga/signal-rest-ui:latest`
 
 Docker defaults to Docker Hub when no registry is specified, so these are equivalent:
