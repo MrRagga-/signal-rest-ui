@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.2.0](https://github.com/MrRagga-/signal-rest-ui/compare/signal-rest-ui-v0.1.0...signal-rest-ui-v0.2.0) (2026-03-29)
+
+
+### Features
+
+* initialize signal rest ui workspace ([70eabe1](https://github.com/MrRagga-/signal-rest-ui/commit/70eabe10644ff93fa484e44ca4aeacfb5621dca9))
+* persist shared targets and improve connection setup ([cb016eb](https://github.com/MrRagga-/signal-rest-ui/commit/cb016eb900b5a9d296d19d86e982da2bd6ec3c84))
+
+
+### Bug Fixes
+
+* polish operator layouts and auto-select accounts ([b4aaaf0](https://github.com/MrRagga-/signal-rest-ui/commit/b4aaaf017f7b30f9ad9f692e7c5cd15034a78609))
+
+## Changelog
+
 All notable changes to this project will be documented in this file.
 
 This changelog is maintained by `release-please` and follows Conventional Commits.
