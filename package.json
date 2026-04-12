@@ -72,7 +72,7 @@
     "msw": "^2.12.14",
     "orval": "^8.6.2",
     "playwright": "^1.59.1",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.2",
     "swagger2openapi": "^7.0.8",
     "tailwindcss": "^4.2.2",
     "tsup": "^8.5.1",
