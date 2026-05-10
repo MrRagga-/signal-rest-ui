@@ -1,4 +1,4 @@
-FROM node:25-alpine AS builder
+FROM node:26-alpine AS builder
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ RUN npm install --global "$(node -p "require('./package.json').packageManager")"
 COPY . .
 RUN pnpm build
 
-FROM node:25-alpine AS runtime
+FROM node:26-alpine AS runtime
 
 WORKDIR /app
 
